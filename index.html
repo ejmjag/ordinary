@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cardinal Numbers | MAGIST.PRO</title>
+<style>
+*{box-sizing:border-box}:root{--navy:#0d2948;--navy2:#123f73;--ink:#172033;--paper:#f6f8fb;--gold:#c6a15b;--line:#dce3ea;--muted:#667386;--soft:#edf3f8;--warm:#fff8e9}
+html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.68 Arial,Helvetica,sans-serif}
+header{padding:76px max(24px,calc((100vw - 1000px)/2));background:linear-gradient(135deg,#0a223d,#123f73);color:#fff;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff1f;border-radius:50%;right:-90px;top:-120px;box-shadow:0 0 0 70px #ffffff08,0 0 0 140px #ffffff05}
+.k,.n{font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:12px}.k{color:#e4c886;position:relative;z-index:1}.n{color:#9a762d}
+header h1{font:700 clamp(52px,8vw,88px)/.94 Georgia,serif;margin:15px 0 20px;position:relative;z-index:1}header p{max-width:760px;font-size:20px;color:#e8eef5;position:relative;z-index:1}
+nav{position:sticky;top:0;z-index:8000;background:#ffffffef;border-bottom:1px solid var(--line);backdrop-filter:blur(12px);overflow-x:auto;white-space:nowrap;padding:10px max(18px,calc((100vw - 1000px)/2))}
+nav a{display:inline-block;text-decoration:none;color:var(--navy);font-size:12px;font-weight:900;padding:8px 9px;border-radius:7px}nav a:hover{background:var(--soft)}
+main{max-width:1000px;margin:auto;padding:34px 22px 90px}h2,h3{font-family:Georgia,serif;color:var(--navy)}h2{font-size:clamp(29px,4vw,39px);line-height:1.1;margin:8px 0 20px}h3{font-size:25px;margin-top:28px}
+section{background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:16px;padding:34px;margin:26px 0;box-shadow:0 7px 24px #18324d0a;scroll-margin-top:82px}.gold{border-top-color:var(--gold)}
+.rule,.note,.trap{padding:17px 19px;border-radius:10px;margin:17px 0}.rule{background:var(--soft);border-left:4px solid var(--navy2)}.note{background:var(--warm);border-left:4px solid var(--gold)}.trap{background:#fff0eb;border-left:4px solid #b65b48}
+.ex{background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:9px 0}.en{font-weight:800;color:var(--navy)}.kz{color:var(--muted)}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0;border:1px solid var(--line);border-radius:11px;overflow:hidden}th,td{padding:13px 14px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}th{background:var(--soft);color:var(--navy)}
+.mapgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mapitem{background:#f8fafc;border:1px solid var(--line);border-radius:9px;padding:13px}.mapitem b{color:var(--navy)}
+.test{margin-top:20px;padding:21px;border:1px solid #d8e0e8;border-radius:12px;background:#f9fbfd}.q{font-weight:850;font-size:19px}.opt{background:#fff;border:1px solid #d9e0e7;padding:10px 13px;margin:7px 0;border-radius:8px;cursor:pointer}.opt:hover{border-color:#91a3b7}.reviewq .opt.selected{outline:2px solid var(--gold);background:#fffaf0}.reviewq .opt.correct{background:#e6f2e3;border-color:#6d9b68;outline:none}.reviewq .opt.wrong{background:#fae7e3;border-color:#c47770;outline:none}.ans{padding:15px;background:#edf5ea;border-radius:8px;margin-top:10px}
+.resultBtn{border:0;background:var(--navy);color:#fff;padding:14px 20px;border-radius:9px;font-weight:900;font-size:16px;cursor:pointer;margin-top:22px}.score{display:none;background:var(--navy);color:#fff;padding:18px;border-radius:10px;margin-top:13px;font-size:20px;font-weight:900}.score.show{display:block}
+#studyCanvas{position:absolute;left:0;top:0;z-index:9000;pointer-events:none;overflow:visible}#studyTools{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:7px;padding:8px;background:#ffffffed;border:1px solid #d6dee7;border-radius:14px;box-shadow:0 12px 32px #102b4c2b}#studyTools button{width:46px;height:42px;border:1px solid #d8e0e8;background:#fff;border-radius:9px;cursor:pointer;font-weight:900;color:var(--navy)}#studyTools button.active{background:var(--navy);color:#fff}
+#notesPanel{position:fixed;right:82px;bottom:18px;z-index:9998;width:min(330px,calc(100vw - 110px));display:none;background:#fff;border:1px solid #d6dee7;border-radius:14px;padding:13px;box-shadow:0 12px 32px #102b4c2b}#notesPanel.show{display:block}#notesPanel textarea{width:100%;height:180px;margin-top:8px;border:1px solid #d8e0e8;border-radius:9px;padding:11px}
+@media(max-width:700px){header{padding-top:55px;padding-bottom:55px}main{padding:22px 14px 80px}section{padding:22px 18px}.mapgrid{grid-template-columns:1fr}table{font-size:13px}th,td{padding:9px}}
+html.study-lock,body.study-lock{overscroll-behavior:none!important;scroll-behavior:auto!important}
+body.study-lock{touch-action:none!important}body.study-lock #studyCanvas{touch-action:none!important;-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+</style>
+</head>
+<body>
+<header>
+<div class="k">ENGLISH GRAMMAR · KT PREPARATION · MAGIST.PRO</div>
+<h1>Cardinal<br>Numbers</h1>
+<p>Numeral · 1-бөлім — есептік сан есімдер</p>
+</header><nav><a href="#map">EXAM MAP</a><a href="#basic">BASICS</a><a href="#teens">13–90</a><a href="#compound">21–99</a><a href="#hundred">HUNDRED</a><a href="#large">LARGE NUMBERS</a><a href="#approx">APPROXIMATE</a><a href="#of">OF</a><a href="#age">AGE</a><a href="#zero">ZERO</a><a href="#review">REVIEW</a></nav>
+<main>
+
+<section class="gold" id="map"><div class="n">5-SECOND EXAM MAP</div><h2>Cardinal Numbers · ең маңызды ережелер</h2><div class="mapgrid">
+<div class="mapitem"><b>21–99</b><br>tens + unit → hyphen: twenty-five</div>
+<div class="mapitem"><b>Exact number</b><br>two hundred / five thousand → no -s</div>
+<div class="mapitem"><b>Approximate</b><br>hundreds of / thousands of → -s + of</div>
+<div class="mapitem"><b>British English</b><br>125 → one hundred <b>and</b> twenty-five</div>
+<div class="mapitem"><b>Age</b><br>twenty years old / a twenty-year-old student</div>
+<div class="mapitem"><b>Spelling traps</b><br>forty · fifty · eighty</div></div></section><section id="basic">
+<div class="n">01 · НЕГІЗГІ ТҮСІНІК</div>
+<h2>Cardinal Numbers деген не?</h2>
+<p><b>Cardinal Numbers — есептік сан есімдер.</b> Олар «қанша?» деген сұраққа жауап береді және адамның, заттың немесе мөлшердің нақты санын көрсетеді.</p>
+<div class="rule"><b>Cardinal Number → HOW MANY? / HOW MUCH?</b><br>
+one, two, three, ten, twenty, one hundred, one thousand...</div>
+<p>Cardinal numbers заттардың <b>ретін</b> емес, <b>санын</b> көрсетеді. Мысалы, <b>three students</b> — үш студент. Ал <b>the third student</b> — үшінші студент; бұл ordinal number болады.</p>
+<div class="note"><b>Есте сақта:</b> cardinal = қанша? → one, two, three...<br>ordinal = нешінші? → first, second, third...</div>
+<div class="ex"><div class="en">I have three books.</div><div class="kz">Менде үш кітап бар.</div></div>
+<div class="ex"><div class="en">There are twenty students in the room.</div><div class="kz">Бөлмеде жиырма студент бар.</div></div>
+<div class="ex"><div class="en">She is thirty years old.</div><div class="kz">Ол отыз жаста.</div></div>
+<table>
+<tr><th>0–10</th><th>11–19</th><th>Ондықтар</th></tr>
+<tr><td>zero, one, two, three, four, five, six, seven, eight, nine, ten</td><td>eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen</td><td>twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety</td></tr>
+</table>
+<div class="note"><b>Назар аудар:</b> forty ✅ / fourty ❌ · fifty ✅ · eighty ✅</div>
+<div class="test"><div class="n">TEST 01</div><b>Choose the correct spelling:</b>
+<div class="opt">A) fourty</div><div class="opt">B) forty</div><div class="opt">C) fortie</div><div class="opt">D) fourtie</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: B) forty.</b><br><b>Не тексеріледі:</b> 40 санының жазылуы.<br><b>Ереже:</b> four сөзіне қарамастан, 40 саны <b>forty</b> деп жазылады.</div></details></div>
+</section>
+
+<section id="teens"><div class="n">02 · 13–19 vs 20–90</div><h2>-teen және -ty формаларын шатастырма</h2>
+<p><b>13–19</b> сандары көбіне <b>-teen</b>, ал 20, 30, 40... сияқты ондықтар <b>-ty</b> арқылы жасалады. Бұл екі топты жазуда да, тыңдалымда да шатастырмау маңызды.</p>
+<div class="rule"><b>-TEEN → 13–19</b><br>thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen<br><br>
+<b>-TY → ондықтар</b><br>twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety</div>
+<p>Мысалы, <b>thirteen = 13</b>, ал <b>thirty = 30</b>. <b>Fourteen = 14</b>, ал <b>forty = 40</b>. Сондықтан тек алғашқы бөлігіне емес, сөздің соңына да назар аудару керек.</p>
+<table><tr><th>-teen</th><th>-ty</th><th>Назар аудар</th></tr>
+<tr><td>thirteen — 13</td><td>thirty — 30</td><td>three → thir-</td></tr>
+<tr><td>fourteen — 14</td><td>forty — 40</td><td><b>fourty ❌</b></td></tr>
+<tr><td>fifteen — 15</td><td>fifty — 50</td><td>five → fif-</td></tr>
+<tr><td>sixteen — 16</td><td>sixty — 60</td><td></td></tr>
+<tr><td>seventeen — 17</td><td>seventy — 70</td><td></td></tr>
+<tr><td>eighteen — 18</td><td>eighty — 80</td><td><b>eightty ❌</b></td></tr>
+<tr><td>nineteen — 19</td><td>ninety — 90</td><td></td></tr></table>
+<div class="trap"><b>Exam traps:</b> forty ✅ / fourty ❌ · fifty ✅ / fivety ❌ · eighty ✅ / eightty ❌</div>
+<div class="note"><b>Айтылуы:</b> -teen формаларында екпін соңғы бөлікке түсуі мүмкін: thir<b>TEEN</b>; ондықтарда бірінші бөлік айқынырақ: <b>THIR</b>ty.</div></section><section id="compound">
+<div class="n">03 · 21–99</div>
+<h2>Құрама сандар қалай жасалады?</h2>
+<p>21–99 аралығында сан <b>ондық + бірлік</b> түрінде жасалса, сөзбен жазғанда олардың арасына <b>hyphen (-)</b> қойылады.</p>
+<div class="rule"><b>TENS + UNIT → HYPHEN</b><br>
+21 = twenty-one<br>34 = thirty-four<br>47 = forty-seven<br>68 = sixty-eight<br>99 = ninety-nine</div>
+<p>Ал сан таза ондық болса, hyphen қажет емес: <b>twenty, forty, seventy</b>. Hyphen тек ондыққа 1–9 аралығындағы бірлік қосылғанда қойылады.</p>
+<div class="trap">❌ forty seven<br>❌ fourty-seven<br>✅ <b>forty-seven</b></div>
+<div class="rule"><b>TENS + UNIT</b><br>twenty-one · thirty-five · sixty-eight · ninety-nine</div>
+<div class="ex"><div class="en">She has twenty-three students.</div><div class="kz">Оның жиырма үш студенті бар.</div></div>
+<div class="ex"><div class="en">The book has ninety-six pages.</div><div class="kz">Кітапта тоқсан алты бет бар.</div></div>
+<div class="test"><div class="n">TEST 02</div><b>Choose the correct form of 47:</b>
+<div class="opt">A) forty seven</div><div class="opt">B) fourty-seven</div><div class="opt">C) forty-seven</div><div class="opt">D) four-seven</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: C) forty-seven.</b><br>40 = <b>forty</b>; 7 = <b>seven</b>. Ондық пен бірліктің арасына hyphen қойылады.</div></details></div>
+</section>
+
+<section id="hundred">
+<div class="n">04 · HUNDRED</div>
+<h2>Hundred — жүз</h2>
+<p><b>Hundred = жүз.</b> Егер hundred алдында нақты сан тұрса, <b>hundred өзгермейді</b>: оған <b>-s</b> жалғанбайды.</p>
+<div class="rule"><b>NUMBER + HUNDRED + NOUN</b><br>
+one hundred students<br>two hundred students<br>five hundred students</div>
+<p>Мұндағы <b>two / five</b> нақты мөлшерді көрсетіп тұр. Сондықтан <b>two hundreds</b>, <b>five hundreds</b> деп айтуға болмайды.</p>
+<div class="trap">❌ three hundreds people<br>❌ three hundred of people<br>✅ <b>three hundred people</b></div>
+<div class="rule">one hundred · two hundred · five hundred</div>
+<div class="ex"><div class="en">There are three hundred people.</div><div class="kz">Үш жүз адам бар.</div></div>
+<div class="ex"><div class="en">The hotel has two hundred rooms.</div><div class="kz">Қонақүйде екі жүз бөлме бар.</div></div>
+<h3>Hundred-тан кейін тағы сан келсе</h3>
+<p>British English үлгісінде жүздіктен кейін тағы <b>ондық немесе бірлік</b> келсе, hundred-тан кейін <b>and</b> қолданылады.</p>
+<div class="rule">100 → one hundred<br>
+105 → one hundred <b>and</b> five<br>
+125 → one hundred <b>and</b> twenty-five<br>
+342 → three hundred <b>and</b> forty-two</div>
+<p>Егер сан дәл жүздікпен аяқталса, <b>and</b> қажет емес: <b>200 = two hundred</b>. American English-де and жиі түсіріледі, бірақ British үлгісінде оны білу маңызды.</p>
+<div class="ex"><div class="en">125 — one hundred and twenty-five</div><div class="kz">жүз жиырма бес</div></div>
+<div class="ex"><div class="en">342 — three hundred and forty-two</div><div class="kz">үш жүз қырық екі</div></div>
+<div class="test"><div class="n">TEST 03</div><b>Choose the correct form:</b>
+<div class="opt">A) three hundreds students</div><div class="opt">B) three hundred students</div><div class="opt">C) three hundreds of students</div><div class="opt">D) three hundred of students</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: B.</b><br><b>Three</b> — нақты сан. Сондықтан <b>hundred</b> өзгермейді және жай noun алдында <b>of</b> қойылмайды: <b>three hundred students</b>.</div></details></div>
+</section>
+
+<section id="large">
+<div class="n">05 · THOUSAND / MILLION / BILLION</div>
+<h2>Үлкен сандар</h2>
+<p><b>Thousand = мың, million = миллион, billion = миллиард.</b> Егер олардың алдында нақты сан тұрса, <b>hundred, thousand, million, billion</b> формаларына <b>-s жалғанбайды.</b></p>
+<div class="rule"><b>EXACT NUMBER + hundred/thousand/million/billion</b><br>
+two thousand<br>fifty thousand<br>three million<br>six billion</div>
+<div class="trap">❌ five thousands people<br>❌ two millions dollars<br>✅ five thousand people<br>✅ two million dollars</div>
+<p>Бұл сөздер нақты саннан кейін сандық өлшем ретінде қолданылады, сондықтан plural <b>-s</b> алмайды.</p>
+<div class="rule">two thousand ✅ · five million ✅ · three billion ✅</div>
+<div class="ex"><div class="en">The town has fifty thousand residents.</div><div class="kz">Қалада елу мың тұрғын бар.</div></div>
+<div class="ex"><div class="en">The project cost two million dollars.</div><div class="kz">Жоба екі миллион доллар тұрды.</div></div>
+<table>
+<tr><th>Сан</th><th>Оқылуы</th></tr>
+<tr><td>1,000</td><td>one thousand</td></tr>
+<tr><td>10,000</td><td>ten thousand</td></tr>
+<tr><td>100,000</td><td>one hundred thousand</td></tr>
+<tr><td>1,000,000</td><td>one million</td></tr>
+<tr><td>2,500,000</td><td>two million five hundred thousand</td></tr>
+</table>
+<h3>Үлкен сандарды қалай бөлеміз?</h3>
+<p>Үлкен сандарды оқу үшін санды <b>оңнан солға қарай үш цифрдан</b> топтарға бөл. Әр топтың өз атауы болады.</p>
+<div class="rule"><b>... | BILLION | MILLION | THOUSAND | UNITS</b><br>
+1,000 → thousand<br>
+1,000,000 → million<br>
+1,000,000,000 → billion</div>
+<p><b>Қадам:</b> 1) санды үш цифрдан бөл; 2) әр топты жеке оқы; 3) соңына thousand/million/billion атауын қос; 4) нақты сан болғандықтан бұл атауларға -s қоспа.</p>
+<div class="rule"><b>1,245</b> → one thousand two hundred and forty-five<br>
+<b>10,500</b> → ten thousand five hundred<br>
+<b>125,670</b> → one hundred and twenty-five thousand six hundred and seventy<br>
+<b>2,500,000</b> → two million five hundred thousand</div>
+<div class="note"><b>British English:</b> жүздіктен кейін tens/units келсе <b>and</b> қолданылады: 342 → three hundred <b>and</b> forty-two. American English-де <i>and</i> жиі түсіріледі.</div>
+<div class="test"><div class="n">TEST 04</div><b>Choose the correct sentence:</b>
+<div class="opt">A) Five millions people watched it.</div><div class="opt">B) Five million people watched it.</div><div class="opt">C) Five millions of people watched it.</div><div class="opt">D) Five million of people watched it.</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: B.</b><br>Нақты <b>five</b> саны тұрғандықтан <b>million</b> формасына -s жалғанбайды: <b>five million people</b>.</div></details></div>
+</section>
+
+<section id="approx">
+<div class="n">06 · APPROXIMATE NUMBERS</div>
+<h2>Hundreds of · thousands of · millions of</h2>
+<p>Егер нақты 200, 3,000 немесе 5,000,000 деп санамай, тек <b>жүздеген / мыңдаған / миллиондаған</b> деген жалпы көп мөлшерді айтсақ, сан атауына <b>-s</b> және одан кейін <b>of</b> қосылады.</p>
+<div class="rule"><b>NO EXACT NUMBER → -S + OF + NOUN</b><br>
+hundreds of people → жүздеген адам<br>
+thousands of students → мыңдаған студент<br>
+millions of users → миллиондаған қолданушы</div>
+<p>Мұнда hundred/thousand/million алдында <b>two, five, ten</b> сияқты нақты сан жоқ.</p>
+<div class="trap">❌ five thousands of people<br>❌ thousand of people<br>✅ five thousand people<br>✅ thousands of people</div>
+<div class="rule"><b>hundreds of + noun</b><br><b>thousands of + noun</b><br><b>millions of + noun</b></div>
+<div class="ex"><div class="en">Hundreds of people came to the event.</div><div class="kz">Іс-шараға жүздеген адам келді.</div></div>
+<div class="ex"><div class="en">Thousands of students take the exam.</div><div class="kz">Мыңдаған студент емтихан тапсырады.</div></div>
+<div class="ex"><div class="en">Millions of people use the Internet.</div><div class="kz">Миллиондаған адам интернетті қолданады.</div></div>
+<div class="note"><b>Салыстыр:</b><br>two hundred students → нақты 200 студент<br>hundreds of students → жүздеген студент</div>
+<table><tr><th>Құрылым</th><th>Мағына</th><th>Мысал</th></tr>
+<tr><td><b>two hundred + noun</b></td><td>нақты сан</td><td>two hundred students</td></tr>
+<tr><td><b>hundreds of + noun</b></td><td>нақты емес, жүздеген</td><td>hundreds of students</td></tr>
+<tr><td><b>two hundred of + determiner + noun</b></td><td>белгілі топтың 200-і</td><td>two hundred of the students</td></tr></table>
+<div class="test"><div class="n">TEST 05</div><b>___ people visit the city every year.</b>
+<div class="opt">A) Thousands of</div><div class="opt">B) Thousand of</div><div class="opt">C) Thousands</div><div class="opt">D) Five thousands of</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: A) Thousands of.</b><br>Нақты сан жоқ. Жалпы көп мөлшер → <b>thousands of + noun</b>.</div></details></div>
+</section>
+
+<section id="of">
+<div class="n">07 · EXACT NUMBER + OF</div>
+<h2>Нақты саннан кейін of қашан болады?</h2>
+<div class="rule"><b>Жай мөлшер:</b><br>three hundred students ✅<br>three hundred of students ❌</div>
+<p><b>Of</b> жай ғана noun-ның алдына қойылмайды. Бірақ біз <b>алдын ала белгілі бір топтың ішінен</b> нақты санды бөліп көрсетсек, <b>number + of + determiner/pronoun</b> құрылымы қолданылады.</p>
+<div class="rule"><b>NUMBER + OF + THE/THESE/THOSE/MY/US/THEM...</b><br>
+three hundred <b>of the students</b><br>
+two <b>of my friends</b><br>
+five <b>of them</b></div>
+<div class="note"><b>Салыстыр:</b><br>
+Three hundred students passed. → жалпы 300 студент.<br>
+Three hundred <b>of the students</b> passed. → белгілі студенттер тобының ішінен 300-і.</div>
+<div class="ex"><div class="en">Three hundred of the students passed the exam.</div><div class="kz">Студенттердің үш жүзі емтиханнан өтті.</div></div>
+<div class="ex"><div class="en">Two of my friends live abroad.</div><div class="kz">Менің достарымның екеуі шетелде тұрады.</div></div>
+<div class="test"><div class="n">TEST 06</div><b>Choose the correct sentence:</b>
+<div class="opt">A) Two hundred of people attended.</div><div class="opt">B) Two hundreds people attended.</div><div class="opt">C) Two hundred people attended.</div><div class="opt">D) Two hundreds of people attended.</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: C.</b><br>Жай нақты мөлшер: <b>two hundred people</b>. Мұнда -s те, of та қажет емес.</div></details></div>
+</section>
+
+<section id="age">
+<div class="n">08 · AGE & QUANTITY</div>
+<h2>Жас және мөлшер</h2>
+<div class="rule"><b>AGE AS PREDICATE:</b><br>SUBJECT + BE + NUMBER + YEARS OLD</div>
+<div class="ex"><div class="en">She is twenty years old.</div><div class="kz">Ол жиырма жаста.</div></div>
+<div class="ex"><div class="en">He has four children.</div><div class="kz">Оның төрт баласы бар.</div></div>
+<div class="ex"><div class="en">The journey takes three hours.</div><div class="kz">Сапар үш сағатқа созылады.</div></div>
+<div class="note"><b>Назар аудар:</b> сан 1-ден көп болса, countable noun әдетте plural болады: <b>two books, five days, twenty years</b>.</div>
+<h3>Twenty years old vs twenty-year-old</h3>
+<div class="rule"><b>1. Жас сөйлемнің баяндауыш бөлігі болса:</b><br>
+She is <b>twenty years old</b>.<br>
+NUMBER + YEARS OLD → <b>years plural</b>, hyphen жоқ.<br><br>
+<b>2. Жас noun-ды сипаттап, оның алдында тұрса:</b><br>
+She is a <b>twenty-year-old</b> student.<br>
+NUMBER-YEAR-OLD + NOUN → <b>year singular</b>, үш бөлік hyphen арқылы.</div>
+<div class="note"><b>Неге year singular?</b> Twenty-year-old түгелімен бір compound adjective ретінде <b>student</b> сөзін сипаттап тұр. Compound adjective ішіндегі өлшем атауы singular формада қалады.</div>
+<div class="trap">❌ a twenty-years-old student<br>✅ a <b>twenty-year-old</b> student</div>
+<div class="test"><div class="n">TEST 07</div><b>She is ___.</b>
+<div class="opt">A) twenty year old</div><div class="opt">B) twenty years old</div><div class="opt">C) twenties years old</div><div class="opt">D) twenty years olds</div>
+<details><summary>Жауабы мен талдауы</summary><div class="ans"><b>Дұрыс жауап: B) twenty years old.</b><br>Жасты кәдімгі predicate ретінде айту: <b>cardinal number + years old</b>.</div></details></div>
+</section>
+
+<section id="zero"><div class="n">09 · ZERO</div><h2>Zero қалай оқылады?</h2>
+<p><b>0</b> жеке сан немесе кәдімгі мөлшер ретінде негізінен <b>zero</b> деп оқылады. Бірақ ағылшын тілінде контекстке байланысты 0-дің оқылуы өзгеруі мүмкін.</p>
+<div class="rule"><b>zero</b> → негізгі форма<br>
+<b>oh</b> → телефон нөмірлері, кодтарда жиі<br>
+<b>nil</b> → спорт есебі, әсіресе British English</div>
+<p>Сондықтан емтиханда алдымен контекстке қара. Егер арнайы телефон немесе спорт контексті берілмесе, <b>zero</b> — негізгі жауап.</p>
+<table><tr><th>Контекст</th><th>Қолданыс</th><th>Мысал</th></tr>
+<tr><td>Кәдімгі сан</td><td><b>zero</b></td><td>zero degrees</td></tr>
+<tr><td>Телефон нөмірі</td><td><b>oh</b> жиі қолданылады</td><td>507 → five-oh-seven</td></tr>
+<tr><td>Спорт есебі, әсіресе British English</td><td><b>nil</b></td><td>two-nil</td></tr></table>
+<div class="note">Емтиханда контекст болмаса, <b>0 = zero</b> — негізгі қауіпсіз форма.</div></section><section class="gold" id="review"><div class="n">FINAL REVIEW · 20 QUESTIONS</div><h2>Cardinal Numbers · Exam Practice</h2><div class="test reviewq" data-answer="B"><div class="n">REVIEW 01</div><p class="q">Choose the correct spelling of 40.</p><div class="opt" data-letter="A">A) fourty</div><div class="opt" data-letter="B">B) forty</div><div class="opt" data-letter="C">C) fortie</div><div class="opt" data-letter="D">D) fourtie</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) forty.</b><br>40 = forty.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 02</div><p class="q">Choose the correct spelling of 80.</p><div class="opt" data-letter="A">A) eightty</div><div class="opt" data-letter="B">B) eighty</div><div class="opt" data-letter="C">C) eigthy</div><div class="opt" data-letter="D">D) eightie</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) eighty.</b><br>80 = eighty.</div></div><div class="test reviewq" data-answer="C"><div class="n">REVIEW 03</div><p class="q">47 = ...</p><div class="opt" data-letter="A">A) forty seven</div><div class="opt" data-letter="B">B) fourty-seven</div><div class="opt" data-letter="C">C) forty-seven</div><div class="opt" data-letter="D">D) four-seven</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: C) forty-seven.</b><br>21–99: tens + unit hyphen арқылы.</div></div><div class="test reviewq" data-answer="A"><div class="n">REVIEW 04</div><p class="q">65 = ...</p><div class="opt" data-letter="A">A) sixty-five</div><div class="opt" data-letter="B">B) sixteen-five</div><div class="opt" data-letter="C">C) sixty five</div><div class="opt" data-letter="D">D) six-five</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: A) sixty-five.</b><br>60 + 5 → sixty-five.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 05</div><p class="q">There were ___ guests.</p><div class="opt" data-letter="A">A) four hundreds</div><div class="opt" data-letter="B">B) four hundred</div><div class="opt" data-letter="C">C) four hundreds of</div><div class="opt" data-letter="D">D) four hundred of</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) four hundred.</b><br>Exact number → hundred өзгермейді.</div></div><div class="test reviewq" data-answer="A"><div class="n">REVIEW 06</div><p class="q">___ tourists come here every summer.</p><div class="opt" data-letter="A">A) Thousands of</div><div class="opt" data-letter="B">B) Thousand of</div><div class="opt" data-letter="C">C) Thousands</div><div class="opt" data-letter="D">D) Three thousands of</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: A) Thousands of.</b><br>Нақты сан жоқ → thousands of.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 07</div><p class="q">The company employs two ___ people.</p><div class="opt" data-letter="A">A) thousands</div><div class="opt" data-letter="B">B) thousand</div><div class="opt" data-letter="C">C) thousands of</div><div class="opt" data-letter="D">D) thousand of</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) thousand.</b><br>Exact two → two thousand.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 08</div><p class="q">Choose the correct form.</p><div class="opt" data-letter="A">A) six millions dollars</div><div class="opt" data-letter="B">B) six million dollars</div><div class="opt" data-letter="C">C) six millions of dollars</div><div class="opt" data-letter="D">D) six million of dollars</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) six million dollars.</b><br>Exact number → million singular form.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 09</div><p class="q">500 = ...</p><div class="opt" data-letter="A">A) five hundreds</div><div class="opt" data-letter="B">B) five hundred</div><div class="opt" data-letter="C">C) fifth hundred</div><div class="opt" data-letter="D">D) five hundreds of</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) five hundred.</b><br>Exact five → five hundred.</div></div><div class="test reviewq" data-answer="A"><div class="n">REVIEW 10</div><p class="q">She has ___ books.</p><div class="opt" data-letter="A">A) thirty-two</div><div class="opt" data-letter="B">B) thirty-second</div><div class="opt" data-letter="C">C) thirties-two</div><div class="opt" data-letter="D">D) thirty-twos</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: A) thirty-two.</b><br>Cardinal 32 → thirty-two.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 11</div><p class="q">125 in British English is ...</p><div class="opt" data-letter="A">A) one hundred twenty-five</div><div class="opt" data-letter="B">B) one hundred and twenty-five</div><div class="opt" data-letter="C">C) one hundreds and twenty-five</div><div class="opt" data-letter="D">D) one hundred and twenty five</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) one hundred and twenty-five.</b><br>British pattern: hundred + and + twenty-five.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 12</div><p class="q">2,500,000 = ...</p><div class="opt" data-letter="A">A) two millions five hundred thousands</div><div class="opt" data-letter="B">B) two million five hundred thousand</div><div class="opt" data-letter="C">C) two million and five hundreds thousand</div><div class="opt" data-letter="D">D) two millions five hundred thousand</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) two million five hundred thousand.</b><br>Exact million/thousand → no -s.</div></div><div class="test reviewq" data-answer="A"><div class="n">REVIEW 13</div><p class="q">Choose the correct phrase.</p><div class="opt" data-letter="A">A) two hundred students</div><div class="opt" data-letter="B">B) two hundreds students</div><div class="opt" data-letter="C">C) two hundred of students</div><div class="opt" data-letter="D">D) two hundreds of student</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: A) two hundred students.</b><br>Жай нақты мөлшер → two hundred students.</div></div><div class="test reviewq" data-answer="C"><div class="n">REVIEW 14</div><p class="q">Choose the expression meaning «жүздеген студент».</p><div class="opt" data-letter="A">A) hundred students</div><div class="opt" data-letter="B">B) hundreds students</div><div class="opt" data-letter="C">C) hundreds of students</div><div class="opt" data-letter="D">D) hundred of students</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: C) hundreds of students.</b><br>Approximate → hundreds of.</div></div><div class="test reviewq" data-answer="C"><div class="n">REVIEW 15</div><p class="q">___ of the students passed the exam.</p><div class="opt" data-letter="A">A) Three hundred</div><div class="opt" data-letter="B">B) Three hundreds</div><div class="opt" data-letter="C">C) Three hundred of</div><div class="opt" data-letter="D">D) Three hundreds of</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: C) Three hundred of.</b><br>Белгілі топтың ішінен: three hundred of the students.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 16</div><p class="q">She is ___.</p><div class="opt" data-letter="A">A) twenty year old</div><div class="opt" data-letter="B">B) twenty years old</div><div class="opt" data-letter="C">C) twenties years old</div><div class="opt" data-letter="D">D) twenty years olds</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) twenty years old.</b><br>Predicate age → twenty years old.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 17</div><p class="q">Choose the correct compound adjective.</p><div class="opt" data-letter="A">A) a twenty-years-old student</div><div class="opt" data-letter="B">B) a twenty-year-old student</div><div class="opt" data-letter="C">C) a twenty-year-olds student</div><div class="opt" data-letter="D">D) a twenty years old student</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) a twenty-year-old student.</b><br>Noun алдында year singular + hyphens.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 18</div><p class="q">13 = ...</p><div class="opt" data-letter="A">A) thirty</div><div class="opt" data-letter="B">B) thirteen</div><div class="opt" data-letter="C">C) three-teen</div><div class="opt" data-letter="D">D) threeteen</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) thirteen.</b><br>13 = thirteen.</div></div><div class="test reviewq" data-answer="C"><div class="n">REVIEW 19</div><p class="q">Which pair is correct?</p><div class="opt" data-letter="A">A) fourteen — fourty</div><div class="opt" data-letter="B">B) fifteen — fivety</div><div class="opt" data-letter="C">C) eighteen — eighty</div><div class="opt" data-letter="D">D) nineteen — ninty</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: C) eighteen — eighty.</b><br>Correct spellings: eighteen / eighty.</div></div><div class="test reviewq" data-answer="B"><div class="n">REVIEW 20</div><p class="q">In a phone number, 0 may commonly be read as ...</p><div class="opt" data-letter="A">A) nil only</div><div class="opt" data-letter="B">B) oh</div><div class="opt" data-letter="C">C) hundred</div><div class="opt" data-letter="D">D) none</div><div class="ans answer" style="display:none"><b>Дұрыс жауап: B) oh.</b><br>Phone numbers-де 0 жиі oh деп оқылады.</div></div><button class="resultBtn" id="showResult">Нәтижені көрсету</button><div class="score" id="scoreBox"></div></section>
+
+</main><svg id="studyCanvas"></svg><div id="notesPanel"><b>NOTES</b><textarea id="notesArea" placeholder="Сабақ бойынша жазба..."></textarea></div><div id="studyTools"><button data-tool="pen">✎</button><button data-tool="marker">▰</button><button data-tool="eraser">⌫</button><button id="undoTool">↶</button><button id="clearTool">×</button><button id="notesTool">N</button></div><script>
+document.querySelectorAll(".reviewq .opt").forEach(o=>o.onclick=()=>{let q=o.closest(".reviewq");q.querySelectorAll(".opt").forEach(x=>x.classList.remove("selected"));o.classList.add("selected")});
+showResult.onclick=()=>{let qs=[...document.querySelectorAll(".reviewq")],score=0,empty=0;qs.forEach(q=>{let sel=q.querySelector(".selected"),right=q.querySelector(`[data-letter="${q.dataset.answer}"]`);q.querySelectorAll(".opt").forEach(x=>x.classList.remove("correct","wrong"));right.classList.add("correct");if(!sel)empty++;else if(sel.dataset.letter===q.dataset.answer)score++;else sel.classList.add("wrong");q.querySelector(".answer").style.display="block"});scoreBox.classList.add("show");scoreBox.textContent=`Нәтиже: ${score} / ${qs.length}`+(empty?` · Жауап берілмеген: ${empty}`:"")};
+const svg=studyCanvas,bar=studyTools;let tool=null,drawing=false,path=null,hist=[],lx=0,ly=0,guard=false;
+function size(){svg.setAttribute("width",Math.max(document.documentElement.scrollWidth,innerWidth));svg.setAttribute("height",Math.max(document.documentElement.scrollHeight,innerHeight))}
+size();addEventListener("resize",size);new ResizeObserver(size).observe(document.body);
+function block(e){if(tool){e.preventDefault();e.stopPropagation()}}
+function hold(){if(!tool||guard)return;if(Math.abs(scrollX-lx)>1||Math.abs(scrollY-ly)>1){guard=true;scrollTo(lx,ly);requestAnimationFrame(()=>guard=false)}}
+function lock(){lx=scrollX;ly=scrollY;document.documentElement.classList.add("study-lock");document.body.classList.add("study-lock");document.addEventListener("touchmove",block,{passive:false,capture:true});document.addEventListener("gesturestart",block,{passive:false,capture:true});document.addEventListener("gesturechange",block,{passive:false,capture:true});addEventListener("scroll",hold,{passive:true})}
+function unlock(){document.removeEventListener("touchmove",block,{capture:true});document.removeEventListener("gesturestart",block,{capture:true});document.removeEventListener("gesturechange",block,{capture:true});removeEventListener("scroll",hold);document.documentElement.classList.remove("study-lock");document.body.classList.remove("study-lock");requestAnimationFrame(()=>scrollTo(lx,ly))}
+function setTool(t){if(tool===t){tool=null;drawing=false;path=null;unlock()}else{if(tool)unlock();tool=t;lock()}bar.querySelectorAll("[data-tool]").forEach(b=>b.classList.toggle("active",b.dataset.tool===tool));svg.style.pointerEvents=tool?"auto":"none";size()}
+bar.querySelectorAll("[data-tool]").forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();setTool(b.dataset.tool)});
+const pt=e=>[e.clientX+scrollX,e.clientY+scrollY];
+svg.onpointerdown=e=>{if(!tool)return;e.preventDefault();e.stopPropagation();try{svg.setPointerCapture(e.pointerId)}catch(_){}
+if(tool==="eraser"){for(const p of [...svg.querySelectorAll("path")].reverse()){let r=p.getBoundingClientRect();if(e.clientX>=r.left-25&&e.clientX<=r.right+25&&e.clientY>=r.top-25&&e.clientY<=r.bottom+25){hist.push({t:"e",n:p,next:p.nextSibling});p.remove();break}}return}
+drawing=true;let[x,y]=pt(e);path=document.createElementNS("http://www.w3.org/2000/svg","path");path.setAttribute("d",`M ${x} ${y}`);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");path.setAttribute("stroke-linejoin","round");if(tool==="marker"){path.setAttribute("stroke","#d9b84c");path.setAttribute("stroke-width","18");path.setAttribute("opacity",".35")}else{path.setAttribute("stroke","#102b4c");path.setAttribute("stroke-width","3")}svg.appendChild(path);hist.push({t:"a",n:path})};
+svg.onpointermove=e=>{if(!drawing||!path)return;e.preventDefault();e.stopPropagation();let[x,y]=pt(e);path.setAttribute("d",path.getAttribute("d")+` L ${x} ${y}`)};
+svg.onpointerup=svg.onpointercancel=()=>{drawing=false;path=null};
+undoTool.onclick=()=>{let h=hist.pop();if(!h)return;if(h.t==="a")h.n.remove();else svg.insertBefore(h.n,h.next&&h.next.parentNode===svg?h.next:null)};
+clearTool.onclick=()=>{svg.querySelectorAll("path").forEach(p=>p.remove());hist=[]};
+notesArea.value=localStorage.getItem("magist_cardinal_notes")||"";notesArea.oninput=()=>localStorage.setItem("magist_cardinal_notes",notesArea.value);notesTool.onclick=()=>{if(tool)setTool(tool);notesPanel.classList.toggle("show")};</script></body></html>
